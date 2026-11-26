@@ -1,0 +1,2668 @@
+{
+  "schemaVersion": 2,
+  "sources": [
+    {
+      "name": "06_样本集_自适应_10008份",
+      "sha256": "0e0a325d6b71fbdbeac7ca219fc3204a80fd1c9a8404662fc75c66e143b04167",
+      "rows": 10000,
+      "accepted": 7404
+    },
+    {
+      "name": "09_CloakBrowser内核采样_615份",
+      "sha256": "a9573f53bfd2db4977992cd9104fb734e9a50782b1a7d999702a32fba531a158",
+      "rows": 615,
+      "accepted": 615
+    }
+  ],
+  "gpus": [
+    {
+      "brand": "AMD",
+      "model": "AMD  Radeon RX 7800 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD FirePro M4000",
+      "ids": [
+        "0x0000682D"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD FirePro W2100"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) 780M Graphics",
+      "ids": [
+        "0x000015BF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R5 340"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R5 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R5 M315",
+      "ids": [
+        "0x00006907"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R5 M330"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R6 Graphics",
+      "ids": [
+        "0x00009874"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R7 340"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R7 350"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R7 360 Series",
+      "ids": [
+        "0x0000665F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R7 370 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R7 450"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R7 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R9 200 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R9 255"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R9 360",
+      "ids": [
+        "0x0000665F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R9 370 Series",
+      "ids": [
+        "0x00006810",
+        "0x00006811"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R9 380 Series",
+      "ids": [
+        "0x00006939"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R9 390 Series",
+      "ids": [
+        "0x000067B1"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R9 Fury Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R9 M360"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon (TM) R9 M380"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon 760M Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon 780M Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 5450"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 5500 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 5570",
+      "ids": [
+        "0x000068D9"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 5800 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 6300M Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 6450"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 6530D"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 6620G"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 6670"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 6700 Series",
+      "ids": [
+        "0x000068BF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 6800 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7400M Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7480D"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7500M/7600M Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7520G",
+      "ids": [
+        "0x00009990"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7570"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7600 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7640G"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7660D"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7670"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7700 Series",
+      "ids": [
+        "0x0000665C",
+        "0x0000683D",
+        "0x0000683F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7700M Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7800 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7800M Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 7900 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 8200 / R3 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 8210"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 8250"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 8330"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 8400 / R3 Series",
+      "ids": [
+        "0x00009830"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 8570 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 8570D"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon HD 8790M"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon Pro 450"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon Pro 455",
+      "ids": [
+        "0x000067EF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon Pro 460"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon Pro 5300M",
+      "ids": [
+        "0x00007340"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon Pro 5500 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon Pro 5500M",
+      "ids": [
+        "0x00007340"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon Pro 5600M"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon Pro WX 2100"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon Pro WX 3100"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R1E Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R5 200 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R5 220",
+      "ids": [
+        "0x000068F9"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R5 340"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R5 420"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R5 430",
+      "ids": [
+        "0x00006611"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R5 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R5 M230 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R5 M240"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R6 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R6 Graphics + R5 M200 Dual Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R6 Graphics + R6 M255DX Dual Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 200 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 240",
+      "ids": [
+        "0x00006611"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 240 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 250 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 300 Series",
+      "ids": [
+        "0x00006837"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 340"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 350 Series",
+      "ids": [
+        "0x0000683F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 430",
+      "ids": [
+        "0x00006611"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 450"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 Graphics",
+      "ids": [
+        "0x00009874"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 Graphics + HD 7700 Dual Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 Graphics + R7 200 Dual Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 M260 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 M265 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R7 M360"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R9 200 / HD 7900 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R9 200 Series",
+      "ids": [
+        "0x000067B1",
+        "0x00006810"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R9 270"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R9 270 1024SP"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R9 M200X Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD RADEON R9 M290X"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon R9 M380"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD RADEON R9 M395X"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 550"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 5500M Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 5600 OEM"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 5600 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 5700",
+      "ids": [
+        "0x0000731F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 5700 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 5700 XT 50th Anniversary"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 580 2048SP",
+      "ids": [
+        "0x00006FDF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 590 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 640"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6400",
+      "ids": [
+        "0x0000743F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6500 XT",
+      "ids": [
+        "0x0000743F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6500M"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6600"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6600 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6600M"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6600S"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6650 XT",
+      "ids": [
+        "0x000073EF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6700",
+      "ids": [
+        "0x000073DF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6700 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6700S",
+      "ids": [
+        "0x000073EF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6750 GRE 12GB"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6750 XT",
+      "ids": [
+        "0x000073DF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6800"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6800 XT",
+      "ids": [
+        "0x000073BF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6800M",
+      "ids": [
+        "0x000073DF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6800S"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6850M XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6900 XT",
+      "ids": [
+        "0x000073AF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 6950 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 7700 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 7800 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 7900 GRE"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 7900 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX 7900 XTX"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX Vega Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX Vega Graphics - Renoir",
+      "ids": [
+        "0x00001636"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX550 series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon RX590 GME",
+      "ids": [
+        "0x00006FDF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) 530",
+      "ids": [
+        "0x00006900"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) 610M"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) 680M"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) 780M"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R2 Graphics",
+      "ids": [
+        "0x00009850",
+        "0x00009852"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R3 Graphics",
+      "ids": [
+        "0x000098E4"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R4 Graphics",
+      "ids": [
+        "0x0000130B",
+        "0x000098E4"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R5 240"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R5 340X"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R5 Graphics",
+      "ids": [
+        "0x0000130A",
+        "0x00001315",
+        "0x00009851",
+        "0x000098E4"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R5 M430"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R6 Graphics",
+      "ids": [
+        "0x0000130A",
+        "0x0000131D"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R7 200 Series Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R7 250",
+      "ids": [
+        "0x00006610"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R7 350X"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R7 360 Series",
+      "ids": [
+        "0x0000665D"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R7 360 Series Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R7 430"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R7 Graphics",
+      "ids": [
+        "0x00001313",
+        "0x0000131C",
+        "0x00009874"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R7 M465X"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R9 270",
+      "ids": [
+        "0x00006811"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) R9 370 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) RX 560 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) RX 6500M",
+      "ids": [
+        "0x0000743F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) RX Vega 10 Graphics",
+      "ids": [
+        "0x000015D8"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) RX Vega 11 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Vega 10 Graphics",
+      "ids": [
+        "0x000015DD"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Vega 10 Mobile Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Vega 11 Graphics",
+      "ids": [
+        "0x000015D8",
+        "0x000015DD"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Vega 2 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Vega 3 Graphics",
+      "ids": [
+        "0x000015D8",
+        "0x000015DD"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Vega 6 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Vega 8 Graphics",
+      "ids": [
+        "0x000015D8"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Vega 8 Mobile Graphics",
+      "ids": [
+        "0x000015DD"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD Radeon(TM) Vega 9 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD RadeonT 680M"
+    },
+    {
+      "brand": "AMD",
+      "model": "AMD RadeonT 780M"
+    },
+    {
+      "brand": "AMD",
+      "model": "ASUS Radeon (TM) RX 460 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "ASUS Radeon RX 470 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon (TM) Pro WX 5100 Graphics",
+      "ids": [
+        "0x000067C7"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon (TM) RX 470 Graphics",
+      "ids": [
+        "0x000067DF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon (TM) RX 470 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon (TM) RX 480 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon (TM) RX 550",
+      "ids": [
+        "0x0000699F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon (TM) RX 570"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon 520"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon 540X Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon 550 Series",
+      "ids": [
+        "0x000067FF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon HD 3200 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro 555"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro 555X",
+      "ids": [
+        "0x000067EF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro 560"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro 560X"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro 570",
+      "ids": [
+        "0x000067DF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro 570X"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro 575X"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro 580"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro Vega 20"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon Pro WX 5100"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 470 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 550"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 550 Series",
+      "ids": [
+        "0x0000699F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 5500"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 5500 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 5500M"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 550X"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 560 Series",
+      "ids": [
+        "0x000067EF",
+        "0x000067FF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 560 XT"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 570",
+      "ids": [
+        "0x000067DF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 570 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 580 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX 590 Series",
+      "ids": [
+        "0x000067DF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX RX550/550 Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX Vega",
+      "ids": [
+        "0x0000687F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX Vega M GH Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX Vega M GL Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX550/550 Series",
+      "ids": [
+        "0x0000699F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon RX560XT Series"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon(TM) 530"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon(TM) RX 460 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon(TM) RX 470 Graphics"
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon(TM) RX 550",
+      "ids": [
+        "0x0000699F"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon(TM) RX 560 Graphics",
+      "ids": [
+        "0x000067EF"
+      ]
+    },
+    {
+      "brand": "AMD",
+      "model": "Radeon(TM) Vega 8 Graphics",
+      "ids": [
+        "0x000015DD"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Arc(TM) 130T GPU (16GB)",
+      "ids": [
+        "0x00007D51"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Arc(TM) A380 Graphics"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Arc(TM) A730M Graphics"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Arc(TM) A750 Graphics"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Arc(TM) A770 Graphics",
+      "ids": [
+        "0x000056A0"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Arc(TM) Graphics",
+      "ids": [
+        "0x00007D55"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Graphics",
+      "ids": [
+        "0x00007D67"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics",
+      "ids": [
+        "0x00000152",
+        "0x0000016A",
+        "0x00000F31",
+        "0x000022B1",
+        "0x00005A85"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 3000",
+      "ids": [
+        "0x00000116"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 400"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 4000",
+      "ids": [
+        "0x00000166"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 4400"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 4600",
+      "ids": [
+        "0x00000412",
+        "0x00000416"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 500"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 5000"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 505"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 510",
+      "ids": [
+        "0x00001902",
+        "0x00001906"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 515"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 520",
+      "ids": [
+        "0x00001921"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 5200"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 530"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 5300"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 5500",
+      "ids": [
+        "0x00001616"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 5600"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 6000"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 610"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 615",
+      "ids": [
+        "0x0000591E"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 620",
+      "ids": [
+        "0x00005916",
+        "0x00005917"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics 630",
+      "ids": [
+        "0x00005912"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics Family",
+      "ids": [
+        "0x00000A16"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics P4600/P4700"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics P530",
+      "ids": [
+        "0x0000191D"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) HD Graphics P630",
+      "ids": [
+        "0x0000591D"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Graphics 540"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Graphics 550"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Plus Graphics",
+      "ids": [
+        "0x00008A51"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Plus Graphics 640"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Plus Graphics 645",
+      "ids": [
+        "0x00003EA6"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Plus Graphics 650",
+      "ids": [
+        "0x00005927"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Plus Graphics 655"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Pro Graphics 580"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Pro Graphics P580"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Xe Graphics",
+      "ids": [
+        "0x000046A6",
+        "0x000046A8",
+        "0x00004908",
+        "0x00009A40",
+        "0x00009A49",
+        "0x0000A7A0"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Xe MAX 100 Graphics"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(R) Xe MAX Graphics",
+      "ids": [
+        "0x00004905"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(TM) Graphics 5100",
+      "ids": [
+        "0x00000A2E"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(TM) Graphics 550"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(TM) Graphics 6100"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(TM) Plus Graphics 640"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(TM) Plus Graphics 650",
+      "ids": [
+        "0x00005927"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(TM) Pro Graphics 5200",
+      "ids": [
+        "0x00000D26"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) Iris(TM) Pro Graphics 6200"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics",
+      "ids": [
+        "0x00003E98",
+        "0x00004555",
+        "0x00004626",
+        "0x000046A3",
+        "0x000046B3",
+        "0x000046D2",
+        "0x00004C8B",
+        "0x00004E55",
+        "0x00004E61",
+        "0x000087CA",
+        "0x00009A68",
+        "0x00009B41",
+        "0x00009BA4",
+        "0x00009BAA",
+        "0x00009BC4",
+        "0x00009BCA",
+        "0x0000A721",
+        "0x0000A788",
+        "0x0000A78B",
+        "0x0000A7A8",
+        "0x0000A7A9"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 600"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 605",
+      "ids": [
+        "0x00003184"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 610",
+      "ids": [
+        "0x00003E90",
+        "0x00009BA8"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 615"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 617"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 620",
+      "ids": [
+        "0x00003EA0",
+        "0x00003EA9",
+        "0x00005917"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 630",
+      "ids": [
+        "0x00003E91",
+        "0x00003E92",
+        "0x00003E9B",
+        "0x00009BC8"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 710"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 730",
+      "ids": [
+        "0x00004692",
+        "0x00004C8B",
+        "0x0000A782"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 750"
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics 770",
+      "ids": [
+        "0x00004680",
+        "0x00004690"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics P630",
+      "ids": [
+        "0x00009BF6"
+      ]
+    },
+    {
+      "brand": "Intel",
+      "model": "Intel(R) UHD Graphics P750",
+      "ids": [
+        "0x00004C9A"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce 605"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce 615"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 1010"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 1030",
+      "ids": [
+        "0x00001D01"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 420"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 430",
+      "ids": [
+        "0x00000DE1"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 440",
+      "ids": [
+        "0x00000DE0"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 520"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 530"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 610",
+      "ids": [
+        "0x0000104A"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 620"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 620M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 625",
+      "ids": [
+        "0x0000104B"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 625 (OEM)"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 630",
+      "ids": [
+        "0x00000FC2",
+        "0x00001284"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 630M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 635"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 635M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 640"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 640M",
+      "ids": [
+        "0x00000FD8"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 650M",
+      "ids": [
+        "0x00000FD5"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 705",
+      "ids": [
+        "0x0000104C"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 710",
+      "ids": [
+        "0x00001281",
+        "0x0000128B"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 720"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 720M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 730",
+      "ids": [
+        "0x00001287"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 740",
+      "ids": [
+        "0x00000FC8",
+        "0x000011C5",
+        "0x000011CB"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 740M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GT 750M",
+      "ids": [
+        "0x00000FE4",
+        "0x00000FE9"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTS 450",
+      "ids": [
+        "0x00000DC6",
+        "0x00001245",
+        "0x00001249"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1050",
+      "ids": [
+        "0x00001C8D"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1050 Ti",
+      "ids": [
+        "0x00001C21",
+        "0x00001C61",
+        "0x00001C82",
+        "0x00001C8C"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1050 Ti with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1050 with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1060",
+      "ids": [
+        "0x00001C20",
+        "0x00001C60"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1060 3GB",
+      "ids": [
+        "0x00001C02"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1060 5GB",
+      "ids": [
+        "0x00001C04"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1060 6G",
+      "ids": [
+        "0x00001C07"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1060 6GB",
+      "ids": [
+        "0x00001B83",
+        "0x00001C03",
+        "0x00001C06",
+        "0x00001C60"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1060 with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1070",
+      "ids": [
+        "0x00001B81",
+        "0x00001BA1",
+        "0x00001BB3"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1070 Ti"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1070 with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1080",
+      "ids": [
+        "0x00001B80",
+        "0x00001BB3"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1080 Ti",
+      "ids": [
+        "0x00001B06"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1080 with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1630",
+      "ids": [
+        "0x00001F83"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1650",
+      "ids": [
+        "0x00001F0A",
+        "0x00001F91",
+        "0x00001F99",
+        "0x00001FDD",
+        "0x00002188"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1650 SUPER"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1650 Ti"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1650 Ti with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1650 with Max-Q Design",
+      "ids": [
+        "0x00001F99"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1660",
+      "ids": [
+        "0x00002184"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1660 SUPER",
+      "ids": [
+        "0x000021C4"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1660 Ti",
+      "ids": [
+        "0x00002182"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 1660 Ti with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 2060 6GB",
+      "ids": [
+        "0x00001C04"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 460"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 480"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 550 Ti"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 560",
+      "ids": [
+        "0x00001201"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 560 SE"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 560 Ti",
+      "ids": [
+        "0x00001200"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 570"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 645"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 650",
+      "ids": [
+        "0x00000FC6"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 650 Ti"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 650 Ti BOOST",
+      "ids": [
+        "0x000011C2"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 660",
+      "ids": [
+        "0x00001185",
+        "0x000011C0"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 660 Ti",
+      "ids": [
+        "0x00001183"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 660M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 670"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 675MX"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 680"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 690"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 745",
+      "ids": [
+        "0x00001382"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 750"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 750 Ti",
+      "ids": [
+        "0x00001380",
+        "0x00001392",
+        "0x0000139B"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 760"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 760 (192-bit)"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 760 Ti OEM",
+      "ids": [
+        "0x00001189"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 765M",
+      "ids": [
+        "0x000011E2"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 770",
+      "ids": [
+        "0x00001184"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 770M",
+      "ids": [
+        "0x000011E0"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 775M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 780"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 780 Ti",
+      "ids": [
+        "0x0000100A"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 950",
+      "ids": [
+        "0x00001402"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 950M",
+      "ids": [
+        "0x0000139A"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 960"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 960M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 965M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 970"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 970M"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 980",
+      "ids": [
+        "0x000013C0"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 980 Ti"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX 980M",
+      "ids": [
+        "0x000013D7"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX TITAN",
+      "ids": [
+        "0x00001005"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce GTX TITAN X"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2050",
+      "ids": [
+        "0x000025AD"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2060",
+      "ids": [
+        "0x00001E89",
+        "0x00001F03",
+        "0x00001F08",
+        "0x00001F11",
+        "0x00001F12"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2060 SUPER",
+      "ids": [
+        "0x00001F06"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2060 with Max-Q Design",
+      "ids": [
+        "0x00001F11"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2070",
+      "ids": [
+        "0x00001F02",
+        "0x00001F14"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2070 SUPER"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2070 Super with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2070 with Max-Q"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2070 with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2080",
+      "ids": [
+        "0x00001E82",
+        "0x00001E87",
+        "0x00001ED0"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2080 SUPER",
+      "ids": [
+        "0x00001E81",
+        "0x00001E93",
+        "0x00001ED3"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2080 Super with Max-Q Design",
+      "ids": [
+        "0x00001E93"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2080 Ti",
+      "ids": [
+        "0x00001E07"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 2080 with Max-Q Design",
+      "ids": [
+        "0x00001ED0"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3050",
+      "ids": [
+        "0x00002582",
+        "0x000025A2"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3050 4GB Laptop GPU"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "ids": [
+        "0x000025E5"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3050 OEM"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+      "ids": [
+        "0x000025A0",
+        "0x000025E0"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3060",
+      "ids": [
+        "0x00002487",
+        "0x00002503",
+        "0x00002504",
+        "0x00002520"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "ids": [
+        "0x00002520"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3060 SUPER"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3060 Ti",
+      "ids": [
+        "0x000024C9"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3070",
+      "ids": [
+        "0x00002484",
+        "0x00002488",
+        "0x0000249D"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3070 Laptop GPU",
+      "ids": [
+        "0x0000249D",
+        "0x000024DD"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3070 Ti",
+      "ids": [
+        "0x00002482"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3070 Ti Laptop GPU"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3080",
+      "ids": [
+        "0x00002206",
+        "0x0000220A",
+        "0x00002216"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3080 Laptop GPU"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3080 Ti",
+      "ids": [
+        "0x00002208"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3080 Ti Laptop GPU",
+      "ids": [
+        "0x00002420",
+        "0x00002460"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3090",
+      "ids": [
+        "0x00002204"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 3090 Ti",
+      "ids": [
+        "0x00002203",
+        "0x00002489"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4050 Laptop GPU"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4060",
+      "ids": [
+        "0x00002882"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "ids": [
+        "0x000028A0",
+        "0x000028E0"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4060 Ti",
+      "ids": [
+        "0x00002803",
+        "0x00002805"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4070",
+      "ids": [
+        "0x00002786"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4070 Laptop GPU"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4070 SUPER",
+      "ids": [
+        "0x00002783"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4070 Ti",
+      "ids": [
+        "0x00002782"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4080",
+      "ids": [
+        "0x00002704"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4080 Laptop GPU"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4080 SUPER",
+      "ids": [
+        "0x00002702"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4090",
+      "ids": [
+        "0x00002684"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4090 D"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 4090 Laptop GPU",
+      "ids": [
+        "0x00002757"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 5060",
+      "ids": [
+        "0x00002D05"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 5060 Ti",
+      "ids": [
+        "0x00002D04"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 5070",
+      "ids": [
+        "0x00002F04"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 5070 Laptop GPU",
+      "ids": [
+        "0x00002D58"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 5070 Ti",
+      "ids": [
+        "0x00002C05"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+      "ids": [
+        "0x00002F58"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 5080",
+      "ids": [
+        "0x00002C02"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 5080 Laptop GPU",
+      "ids": [
+        "0x00002C59"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA GeForce RTX 5090",
+      "ids": [
+        "0x00002B85"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K1200"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K2000",
+      "ids": [
+        "0x00000FFE"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K2200"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K4000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K420"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K4200"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K5000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K600",
+      "ids": [
+        "0x00000FFA"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K6000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro K620"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro P1000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro P2000",
+      "ids": [
+        "0x00001CBA"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro P2200",
+      "ids": [
+        "0x00001C31"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro P400"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro P4000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro P5000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro P600"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro P620",
+      "ids": [
+        "0x00001CB6"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro RTX 3000",
+      "ids": [
+        "0x00001F36"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro RTX 3000 with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro RTX 4000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro RTX 4000 with Max-Q Design",
+      "ids": [
+        "0x00001EB6"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro RTX 5000 with Max-Q Design"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro T1000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro T1000 with Max-Q Design",
+      "ids": [
+        "0x00001FB9"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA Quadro T2000",
+      "ids": [
+        "0x00001FB8"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA RTX A2000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA RTX A2000 12GB",
+      "ids": [
+        "0x00002571"
+      ]
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA RTX A3000 Laptop GPU"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA RTX A4000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA RTX A5000"
+    },
+    {
+      "brand": "NVIDIA",
+      "model": "NVIDIA RTX A5000 Laptop GPU"
+    }
+  ]
+}

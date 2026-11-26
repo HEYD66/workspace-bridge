@@ -1,0 +1,421 @@
+/*
+ * 取自 hivemind（https://github.com/dip497/hivemind，提交 8e71c3c）的 apps/desktop/tests/unit/frame-layout.test.ts。
+ * 改动只有两处：测试框架从 node:test 换成 vitest，被测文件的路径。MIT License, Copyright (c) 2026 hivemind contributors。
+ */
+// Pure frame-layout geometry: collision separation + in-frame wrap packing.
+import { test } from "vitest";
+import assert from "node:assert/strict";
+import {
+  resolveFrameCollisions,
+  nextSlotInFrame,
+  reserveTileSlot,
+  computeFrameLayout,
+  arrangeBoxes,
+  frameAtPoint,
+  FRAME_GAP,
+  type FrameGeom,
+  type MemberRect,
+  type ArrangeBox,
+} from "../src/shared/canvas/frameLayout";
+
+const rect = (id: string, x: number, y: number, w: number, h: number) => ({ id, x, y, w, h });
+const apply = (r: { id: string; x: number; y: number; w: number; h: number }, d: { dx: number; dy: number }) =>
+  ({ ...r, x: r.x + d.dx, y: r.y + d.dy });
+const overlap = (a: { x: number; y: number; w: number; h: number }, b: { x: number; y: number; w: number; h: number }) =>
+  a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
+
+test("non-overlapping frames are left untouched", () => {
+  const frames = [rect("a", 0, 0, 500, 400), rect("b", 1000, 0, 500, 400)];
+  const d = resolveFrameCollisions(frames);
+  assert.deepEqual(d.a, { dx: 0, dy: 0 });
+  assert.deepEqual(d.b, { dx: 0, dy: 0 });
+});
+
+test("two overlapping frames get separated (no overlap after)", () => {
+  // b grew left and now overlaps a.
+  const a = rect("a", 0, 0, 800, 400);
+  const b = rect("b", 600, 0, 800, 400);
+  const d = resolveFrameCollisions([a, b]);
+  const a2 = apply(a, d.a);
+  const b2 = apply(b, d.b);
+  assert.equal(overlap(a2, b2), false, "frames must not overlap after resolve");
+});
+
+test("anchor frame stays put; the neighbour yields", () => {
+  // 'a' is the frame you just grew → anchor. 'b' must move, not 'a'.
+  const a = rect("a", 0, 0, 800, 400);
+  const b = rect("b", 600, 0, 800, 400);
+  const d = resolveFrameCollisions([a, b], "a");
+  assert.deepEqual(d.a, { dx: 0, dy: 0 }, "anchor does not move");
+  assert.notDeepEqual(d.b, { dx: 0, dy: 0 }, "neighbour moves");
+  assert.equal(overlap(apply(a, d.a), apply(b, d.b)), false);
+});
+
+test("separated frames keep at least the gap between them", () => {
+  const a = rect("a", 0, 0, 800, 400);
+  const b = rect("b", 600, 0, 800, 400);
+  const d = resolveFrameCollisions([a, b], "a");
+  const b2 = apply(b, d.b);
+  // pushed right: b2.x should be >= a.right + gap
+  assert.ok(b2.x >= 800 + FRAME_GAP - 1, `expected gap, got b.x=${b2.x}`);
+});
+
+test("three-frame cascade fully separates", () => {
+  const fs = [
+    rect("a", 0, 0, 600, 400),
+    rect("b", 300, 0, 600, 400),
+    rect("c", 600, 0, 600, 400),
+  ];
+  const d = resolveFrameCollisions(fs, "a");
+  const moved = fs.map((f) => apply(f, d[f.id]!));
+  for (let i = 0; i < moved.length; i++)
+    for (let j = i + 1; j < moved.length; j++)
+      assert.equal(overlap(moved[i]!, moved[j]!), false, `pair ${i},${j} still overlaps`);
+});
+
+test("deterministic — same input yields same deltas", () => {
+  const fs = [rect("a", 0, 0, 800, 400), rect("b", 500, 100, 800, 400)];
+  const d1 = resolveFrameCollisions(fs, "a");
+  const d2 = resolveFrameCollisions(fs, "a");
+  assert.deepEqual(d1, d2);
+});
+
+// ── nextSlotInFrame ────────────────────────────────────────────────────────
+const PACK = { padX: 24, padTop: 48, gap: 24, maxRowWidth: 3400 };
+
+test("first tile lands at the frame's top-left pad", () => {
+  const slot = nextSlotInFrame({ x: 100, y: 200 }, [], { w: 1200, h: 800 }, PACK);
+  assert.deepEqual(slot, { x: 124, y: 248 });
+});
+
+test("second tile extends the row to the right when it fits", () => {
+  const origin = { x: 100, y: 200 };
+  const m = [rect("t1", 124, 248, 1200, 800)];
+  const slot = nextSlotInFrame(origin, m, { w: 1200, h: 800 }, PACK);
+  assert.equal(slot.x, 124 + 1200 + 24, "snug right of t1");
+  assert.equal(slot.y, 248, "top-aligned with the row");
+});
+
+test("a dragged tile far across the frame does not push a new spawn away from the open first slot", () => {
+  const slot = nextSlotInFrame({ x: 100, y: 200 }, [rect("moved", 5000, 248, 1200, 800)], { w: 1100, h: 740 }, PACK);
+  assert.deepEqual(slot, { x: 124, y: 248 });
+});
+
+test("a new tile fills the first free gap in a row before wrapping", () => {
+  const members = [rect("first", 124, 248, 1100, 740), rect("moved", 2600, 248, 1100, 740)];
+  const slot = nextSlotInFrame({ x: 100, y: 200 }, members, { w: 1100, h: 740 }, PACK);
+  assert.deepEqual(slot, { x: 124 + 1100 + PACK.gap, y: 248 });
+});
+
+test("a tile opened by another lands right of it, else below it, else in the first free slot", () => {
+  const lead = rect("lead", 2600, 248, 1100, 740);
+  const tile = { w: 1100, h: 740 };
+  const origin = { x: 100, y: 200 };
+  assert.deepEqual(nextSlotInFrame(origin, [lead], tile, { ...PACK, near: lead }), { x: 2600 + 1100 + 24, y: 248 });
+  const right = rect("right", 3724, 248, 1100, 740);
+  assert.deepEqual(nextSlotInFrame(origin, [lead, right], tile, { ...PACK, near: lead }), { x: 2600, y: 248 + 740 + 24 });
+  const below = rect("below", 2600, 1012, 1100, 740);
+  assert.deepEqual(nextSlotInFrame(origin, [lead, right, below], tile, { ...PACK, near: lead }), { x: 124, y: 248 });
+});
+
+test("tile wraps to a new row when the row would exceed maxRowWidth", () => {
+  const origin = { x: 100, y: 200 };
+  // Two big tiles already fill the row (124..124+1480+24+1480 ≈ 3108); a third
+  // 1480 tile would exceed 3400 from leftX → wrap.
+  const m = [
+    rect("t1", 124, 248, 1480, 1000),
+    rect("t2", 124 + 1480 + 24, 248, 1480, 1000),
+  ];
+  const slot = nextSlotInFrame(origin, m, { w: 1480, h: 1000 }, PACK);
+  assert.equal(slot.x, 124, "wraps back to the left pad");
+  assert.equal(slot.y, 248 + 1000 + 24, "drops below the tallest in the row");
+});
+
+test("three tile spawns before state settles reserve non-overlapping boxes", () => {
+  const pending = new Map<string, ReturnType<typeof rect>>();
+  const staleMembers: ReturnType<typeof rect>[] = [];
+  const boxes = ["first", "second", "third"].map((id) => {
+    const slot = reserveTileSlot(id, { x: 100, y: 200 }, staleMembers, pending, { w: 1100, h: 740 }, PACK);
+    return rect(id, slot.x, slot.y, 1100, 740);
+  });
+  for (let i = 0; i < boxes.length; i++)
+    for (let j = i + 1; j < boxes.length; j++)
+      assert.equal(overlap(boxes[i]!, boxes[j]!), false, `${boxes[i]!.id} overlaps ${boxes[j]!.id}`);
+});
+
+// ── computeFrameLayout (nesting-aware auto-fit) ──────────────────────────────
+const K = { pad: 28, header: 36, emptyW: 460, emptyH: 200 };
+const mem = (x: number, y: number, w: number, h: number): MemberRect => ({ x, y, r: x + w, b: y + h });
+const contains = (
+  outer: { x: number; y: number; w: number; h: number },
+  inner: { x: number; y: number; w: number; h: number },
+) =>
+  outer.x <= inner.x &&
+  outer.y <= inner.y &&
+  outer.x + outer.w >= inner.x + inner.w &&
+  outer.y + outer.h >= inner.y + inner.h;
+
+test("flat: a lone frame fits its member-tile bbox (pad+header)", () => {
+  const frames: FrameGeom[] = [{ id: "a", x: 0, y: 0, w: 460, h: 200 }];
+  const members = new Map([["a", [mem(100, 100, 500, 400)]]]);
+  const { geometry, tileShift } = computeFrameLayout(frames, members, null, K);
+  assert.deepEqual(geometry.get("a"), { x: 72, y: 64, w: 556, h: 464 });
+  assert.deepEqual(tileShift.get("a"), { dx: 0, dy: 0 });
+});
+
+test("flat: a frame around a small member (a sticky note) is still as wide as an empty one, for its header", () => {
+  const frames: FrameGeom[] = [{ id: "a", x: 0, y: 0, w: 460, h: 200 }];
+  const members = new Map([["a", [mem(100, 100, 220, 180)]]]);
+  const { geometry } = computeFrameLayout(frames, members, null, K);
+  assert.deepEqual(geometry.get("a"), { x: 72, y: 64, w: 460, h: 244 });
+});
+
+test("flat: an empty frame collapses to the placeholder at its origin", () => {
+  const frames: FrameGeom[] = [{ id: "a", x: 300, y: 200, w: 800, h: 600 }];
+  const { geometry } = computeFrameLayout(frames, new Map(), null, K);
+  assert.deepEqual(geometry.get("a"), { x: 300, y: 200, w: 460, h: 200 });
+});
+
+test("flat: two top-level frames with overlapping boxes separate", () => {
+  const frames: FrameGeom[] = [
+    { id: "a", x: 0, y: 0, w: 800, h: 400 },
+    { id: "b", x: 0, y: 0, w: 800, h: 400 },
+  ];
+  const members = new Map([
+    ["a", [mem(0, 0, 800, 400)]],
+    ["b", [mem(200, 0, 800, 400)]],
+  ]);
+  const { geometry } = computeFrameLayout(frames, members, "a", K);
+  assert.equal(overlap(geometry.get("a")!, geometry.get("b")!), false);
+});
+
+test("nested: a parent frame fully contains its single child frame", () => {
+  const frames: FrameGeom[] = [
+    { id: "P", x: 0, y: 0, w: 460, h: 200 },
+    { id: "C", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P" },
+  ];
+  // P has no own tiles; C has tiles → C derives its box, P wraps it.
+  const members = new Map([["C", [mem(200, 200, 700, 500)]]]);
+  const { geometry } = computeFrameLayout(frames, members, null, K);
+  const P = geometry.get("P")!;
+  const C = geometry.get("C")!;
+  assert.ok(contains(P, C), `parent ${JSON.stringify(P)} must contain child ${JSON.stringify(C)}`);
+  // The parent reserves header room ABOVE the child for its own title bar.
+  assert.ok(P.y < C.y, "parent top sits above child top");
+});
+
+test("nested: sibling child frames separate; parent contains both", () => {
+  const frames: FrameGeom[] = [
+    { id: "P", x: 0, y: 0, w: 460, h: 200 },
+    { id: "C1", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P" },
+    { id: "C2", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P" },
+  ];
+  const members = new Map([
+    ["C1", [mem(100, 100, 600, 400)]],
+    ["C2", [mem(200, 100, 600, 400)]], // overlaps C1's box
+  ]);
+  const { geometry } = computeFrameLayout(frames, members, "C1", K);
+  const P = geometry.get("P")!;
+  const C1 = geometry.get("C1")!;
+  const C2 = geometry.get("C2")!;
+  assert.equal(overlap(C1, C2), false, "siblings must not overlap");
+  assert.ok(contains(P, C1) && contains(P, C2), "parent contains both children");
+});
+
+test("nested: a parent's separation delta cascades to its child (geometry + tileShift)", () => {
+  // Two repo frames, each with one child, positioned so the wrapped parent
+  // boxes overlap → top-level separation moves one parent; its child must move
+  // with it (same delta) in both geometry and tileShift.
+  const frames: FrameGeom[] = [
+    { id: "P1", x: 0, y: 0, w: 460, h: 200 },
+    { id: "C1", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P1" },
+    { id: "P2", x: 0, y: 0, w: 460, h: 200 },
+    { id: "C2", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P2" },
+  ];
+  const members = new Map([
+    ["C1", [mem(0, 0, 700, 500)]],
+    ["C2", [mem(300, 0, 700, 500)]], // P2's wrapped box overlaps P1's
+  ]);
+  const { geometry, tileShift } = computeFrameLayout(frames, members, "P1", K);
+  assert.equal(overlap(geometry.get("P1")!, geometry.get("P2")!), false, "parents separated");
+  // P1 is the anchor → P2 moves. C2 must carry P2's delta.
+  const dP2 = tileShift.get("P2")!;
+  const dC2 = tileShift.get("C2")!;
+  assert.deepEqual(dC2, dP2, "child shift equals parent shift (no children of its own)");
+  assert.ok(dP2.dx !== 0 || dP2.dy !== 0, "P2 actually moved");
+  assert.ok(contains(geometry.get("P2")!, geometry.get("C2")!), "P2 still contains C2 after move");
+});
+
+test("nested: anchoring on a worktree CHILD pins its parent in the top-level pass", () => {
+  // Same overlap as above, but the anchor is the worktree child C1 (as happens
+  // when you just spawned/dragged a worktree). The top-level pass must pin C1's
+  // PARENT (P1) so the nest stays put and the sibling repo (P2) yields.
+  const frames: FrameGeom[] = [
+    { id: "P1", x: 0, y: 0, w: 460, h: 200 },
+    { id: "C1", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P1" },
+    { id: "P2", x: 0, y: 0, w: 460, h: 200 },
+    { id: "C2", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P2" },
+  ];
+  const members = new Map([
+    ["C1", [mem(0, 0, 700, 500)]],
+    ["C2", [mem(300, 0, 700, 500)]],
+  ]);
+  const { tileShift } = computeFrameLayout(frames, members, "C1", K);
+  assert.deepEqual(tileShift.get("P1"), { dx: 0, dy: 0 }, "anchor's parent P1 is pinned");
+  assert.deepEqual(tileShift.get("C1"), { dx: 0, dy: 0 }, "the anchored child stays put");
+  const dP2 = tileShift.get("P2")!;
+  assert.ok(dP2.dx !== 0 || dP2.dy !== 0, "the sibling repo P2 yields instead");
+});
+
+test("nested: 3 sibling children reflow into a clean row (no diagonal scatter)", () => {
+  // REGRESSION: with 3+ overlapping worktree children, pairwise collision
+  // nudging staggered them diagonally ("nested layers get lost / dispersed").
+  // separateSiblingFrames must reflow them left→right in reading order, all on
+  // one row (same top), and keep them inside the parent.
+  const frames: FrameGeom[] = [
+    { id: "P", x: 0, y: 0, w: 460, h: 200 },
+    { id: "C1", x: 28, y: 64, w: 460, h: 200, parentFrameId: "P" },
+    { id: "C2", x: 516, y: 64, w: 460, h: 200, parentFrameId: "P" },
+    { id: "C3", x: 1004, y: 64, w: 460, h: 200, parentFrameId: "P" },
+  ];
+  // Each child grows to a ~656px tile box overlapping its neighbour.
+  const members = new Map([
+    ["C1", [mem(56, 100, 600, 400)]],
+    ["C2", [mem(200, 150, 600, 400)]],
+    ["C3", [mem(340, 200, 600, 400)]],
+  ]);
+  const { geometry } = computeFrameLayout(frames, members, "C1", K);
+  const P = geometry.get("P")!, C1 = geometry.get("C1")!, C2 = geometry.get("C2")!, C3 = geometry.get("C3")!;
+  assert.equal(overlap(C1, C2), false, "C1/C2 must not overlap");
+  assert.equal(overlap(C2, C3), false, "C2/C3 must not overlap");
+  assert.equal(overlap(C1, C3), false, "C1/C3 must not overlap");
+  // A clean row: all three share the same top (no diagonal scatter).
+  assert.equal(C1.y, C2.y, "C1 and C2 on the same row");
+  assert.equal(C2.y, C3.y, "C2 and C3 on the same row");
+  // Left→right in reading order.
+  assert.ok(C1.x < C2.x && C2.x < C3.x, "children ordered left→right");
+  assert.ok(contains(P, C1) && contains(P, C2) && contains(P, C3), "parent contains all three");
+});
+
+test("nested: 3 sibling reflow is anchor-independent (origin is the group's, not the anchor's)", () => {
+  // REGRESSION: separateSiblingFrames used to take the row origin from the
+  // anchor's current corner. When the anchor wasn't reading-order-first, the
+  // whole row (and the parent wrapping it) shifted to the anchor's position —
+  // dragging the rightmost sibling shoved the entire nest. The origin must be
+  // the group's min x/y regardless of which sibling is the anchor; the anchor
+  // only affects sort/tie-breaking via current position, not the origin.
+  const frames: FrameGeom[] = [
+    { id: "P", x: 0, y: 0, w: 460, h: 200 },
+    { id: "C1", x: 28, y: 64, w: 460, h: 200, parentFrameId: "P" },
+    { id: "C2", x: 516, y: 64, w: 460, h: 200, parentFrameId: "P" },
+    { id: "C3", x: 1004, y: 64, w: 460, h: 200, parentFrameId: "P" },
+  ];
+  const members = new Map([
+    ["C1", [mem(56, 100, 600, 400)]],
+    ["C2", [mem(200, 150, 600, 400)]],
+    ["C3", [mem(340, 200, 600, 400)]],
+  ]);
+  const layoutC1 = computeFrameLayout(frames, members, "C1", K).geometry;
+  const layoutC3 = computeFrameLayout(frames, members, "C3", K).geometry;
+  for (const id of ["P", "C1", "C2", "C3"]) {
+    assert.deepEqual(
+      layoutC3.get(id),
+      layoutC1.get(id),
+      `${id} geometry must be identical regardless of anchor (C1 vs C3)`,
+    );
+  }
+});
+
+test("nested: 4 sibling children all stacked at one spot fan out into a row", () => {
+  const frames: FrameGeom[] = [
+    { id: "P", x: 0, y: 0, w: 460, h: 200 },
+    { id: "C1", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P" },
+    { id: "C2", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P" },
+    { id: "C3", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P" },
+    { id: "C4", x: 0, y: 0, w: 460, h: 200, parentFrameId: "P" },
+  ];
+  const members = new Map([
+    ["C1", [mem(100, 100, 500, 400)]],
+    ["C2", [mem(120, 100, 500, 400)]],
+    ["C3", [mem(140, 100, 500, 400)]],
+    ["C4", [mem(160, 100, 500, 400)]],
+  ]);
+  const { geometry } = computeFrameLayout(frames, members, "C1", K);
+  const P = geometry.get("P")!;
+  const kids = ["C1", "C2", "C3", "C4"].map((id) => geometry.get(id)!);
+  for (let i = 0; i < kids.length; i++)
+    for (let j = i + 1; j < kids.length; j++)
+      assert.equal(overlap(kids[i]!, kids[j]!), false, `C${i + 1}/C${j + 1} overlap`);
+  kids.forEach((k, i) => assert.ok(contains(P, k), `parent must contain C${i + 1}`));
+});
+
+// ── arrangeBoxes (opt-in tidy) ───────────────────────────────────────────────
+const box = (id: string, x: number, y: number, w: number, h: number): ArrangeBox => ({ id, x, y, w, h });
+const ARR = { originX: 100, originY: 200, padX: 24, padTop: 48, gap: 24, maxRowWidth: 1000 };
+const noOverlap = (m: Map<string, { x: number; y: number }>, boxes: ArrangeBox[]) => {
+  const placed = boxes.map((b) => ({ ...b, ...m.get(b.id)! }));
+  for (let i = 0; i < placed.length; i++)
+    for (let j = i + 1; j < placed.length; j++)
+      if (overlap(placed[i]!, placed[j]!)) return false;
+  return true;
+};
+
+test("arrange columns: boxes side by side, top-aligned, in reading order", () => {
+  const boxes = [box("b", 500, 200, 200, 150), box("a", 100, 200, 200, 150)];
+  const m = arrangeBoxes(boxes, "columns", ARR);
+  // sorted by (y,x): a then b. startX=124, startY=248.
+  assert.deepEqual(m.get("a"), { x: 124, y: 248 });
+  assert.deepEqual(m.get("b"), { x: 124 + 200 + 24, y: 248 });
+  assert.ok(noOverlap(m, boxes));
+});
+
+test("arrange rows: boxes stacked, left-aligned", () => {
+  const boxes = [box("a", 100, 200, 200, 150), box("b", 100, 400, 300, 100)];
+  const m = arrangeBoxes(boxes, "rows", ARR);
+  assert.deepEqual(m.get("a"), { x: 124, y: 248 });
+  assert.deepEqual(m.get("b"), { x: 124, y: 248 + 150 + 24 });
+  assert.ok(noOverlap(m, boxes));
+});
+
+test("arrange grid: wraps past maxRowWidth, row advances by tallest", () => {
+  // maxRowWidth 1000 from startX: two 400-wide fit (424,848), third wraps.
+  const boxes = [
+    box("a", 0, 0, 400, 200),
+    box("b", 500, 0, 400, 120),
+    box("c", 1000, 0, 400, 100),
+  ];
+  const m = arrangeBoxes(boxes, "grid", ARR);
+  assert.deepEqual(m.get("a"), { x: 124, y: 248 });
+  assert.deepEqual(m.get("b"), { x: 124 + 400 + 24, y: 248 });
+  // c wraps to a new row below the tallest in row 1 (200).
+  assert.deepEqual(m.get("c"), { x: 124, y: 248 + 200 + 24 });
+  assert.ok(noOverlap(m, boxes));
+});
+
+// ── frameAtPoint (drop-membership; replaces frame-contains-tile logic) ───────
+const wf = (id: string, x: number, y: number, w: number, h: number, parentFrameId?: string) =>
+  ({ id, x, y, w, h, parentFrameId });
+
+test("frameAtPoint: a point inside a frame returns that frame + origin", () => {
+  const frames = [wf("a", 0, 0, 500, 400)];
+  assert.deepEqual(frameAtPoint(frames, 100, 100), { id: "a", x: 0, y: 0 });
+});
+
+test("frameAtPoint: a point outside every frame returns null", () => {
+  assert.equal(frameAtPoint([wf("a", 0, 0, 100, 100)], 500, 500), null);
+});
+
+test("frameAtPoint: INNERMOST (worktree child) wins over its parent at the same point", () => {
+  // child 'c' (worktree) sits inside parent 'p'. A drop in the overlap joins 'c'
+  // so the tile's PTY runs on the worktree branch — the reviewer's H3 fix.
+  const framesZDesc = [wf("c", 50, 50, 200, 200, "p"), wf("p", 0, 0, 800, 600)];
+  assert.equal(frameAtPoint(framesZDesc, 100, 100)!.id, "c");
+  // A point inside the parent but OUTSIDE the child joins the parent.
+  assert.equal(frameAtPoint(framesZDesc, 400, 400)!.id, "p");
+});
+
+test("frameAtPoint: among same-level frames, the first (topmost-z) hit wins", () => {
+  // Caller passes z-descending; two overlapping top-level frames → first wins.
+  const framesZDesc = [wf("top", 0, 0, 300, 300), wf("bottom", 0, 0, 300, 300)];
+  assert.equal(frameAtPoint(framesZDesc, 50, 50)!.id, "top");
+});

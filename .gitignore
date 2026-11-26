@@ -1,0 +1,12 @@
+node_modules/
+out/
+dist/
+*.log
+
+# 运行时数据（含明文 token），绝不提交
+.bridge-data/
+.e2e-out/
+_smoke_out/
+
+# 本地工具配置
+.claude/

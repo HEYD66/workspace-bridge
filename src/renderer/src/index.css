@@ -1,0 +1,210 @@
+@import 'tailwindcss';
+
+/* 深色配色（照 Codex 的中性灰）：bg-shell（最外层）/ bg-canvas / bg-panel / border-line / text-fg / text-muted / text-accent */
+@theme {
+  --font-sans: 'Inter', 'Microsoft YaHei UI', 'PingFang SC', system-ui, sans-serif;
+  --font-mono: 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+  --color-shell: #111111;
+  --color-canvas: #171717;
+  --color-panel: #1c1c1c;
+  --color-raised: #242424;
+  --color-hover: #2b2b2b;
+  --color-line: #2f2f2f;
+  --color-line-soft: #262626;
+  --color-fg: #ececec;
+  --color-muted: #9a9a9a;
+  --color-faint: #707070;
+  --color-accent: #58a6ff;
+  --color-ok: #3fb950;
+  --color-warn: #d29922;
+  --color-bad: #f85149;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-fg);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* 可选中的文本区域（token、代码、diff、日志） */
+.selectable {
+  user-select: text;
+}
+
+input,
+textarea,
+select {
+  user-select: text;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4d4d4d;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+/* 拖分隔条时：整页保持拖动光标，不选中文字，Monaco / xterm 不抢指针事件 */
+body.resizing-x,
+body.resizing-x * {
+  cursor: col-resize !important;
+}
+body.resizing-y,
+body.resizing-y * {
+  cursor: row-resize !important;
+}
+body.resizing-x,
+body.resizing-y {
+  user-select: none;
+}
+body.resizing-x iframe,
+body.resizing-y iframe,
+body.resizing-x .monaco-editor,
+body.resizing-y .monaco-editor,
+body.resizing-x .xterm,
+body.resizing-y .xterm {
+  pointer-events: none;
+}
+
+@keyframes flash-in {
+  from {
+    background: rgba(88, 166, 255, 0.14);
+  }
+  to {
+    background: transparent;
+  }
+}
+.flash-in {
+  animation: flash-in 1.2s ease-out;
+}
+
+/*
+ * 没有系统标题栏（照 Codex）：顶栏就是标题栏，空白处可以拖动窗口；按钮、输入框和标了 app-no-drag 的不算拖动区。
+ * 右边给系统画的 最小化 / 最大化 / 关闭 留出位置（宽度由系统告诉页面）；浏览器里的远端页面没有这三个按钮，只留 12 像素
+ */
+.app-titlebar {
+  -webkit-app-region: drag;
+  padding-right: calc(100vw - env(titlebar-area-x, 0px) - env(titlebar-area-width, 100vw) + 12px);
+}
+.app-titlebar button,
+.app-titlebar input,
+.app-titlebar select,
+.app-titlebar a,
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* ===== 手机版（App.tsx 的 [data-phone-shell]） ===== */
+/* 输入框的字不到 16px，iPhone 一点进去就会自己放大页面 */
+[data-phone-shell] textarea,
+[data-phone-shell] input {
+  font-size: 16px;
+}
+/* 列表里的每一行要有手指那么高，字也大一号 */
+[data-phone-list] div.cursor-pointer {
+  min-height: 46px;
+}
+[data-phone-list] .text-\[13px\] {
+  font-size: 15px;
+}
+[data-phone-list] .text-\[11px\] {
+  font-size: 12px;
+}
+/* 鼠标停上去才出来的卡片，手机上一点就弹，挡住列表 */
+[data-phone-shell] [data-project-card] {
+  display: none;
+}
+/* 会话页头上的东西一行放不下：标题一行，参与的 AI 和干活方式另起一行 */
+[data-phone-shell] [data-chat-header] {
+  flex-wrap: wrap;
+  row-gap: 6px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+[data-phone-shell] [data-chat-header] > .min-w-0 {
+  flex-basis: 100%;
+}
+/* 标题前面那个图标单独占一行不好看，手机上不要 */
+[data-phone-shell] [data-chat-header] > svg {
+  display: none;
+}
+[data-phone-shell] [data-chat-column],
+[data-phone-shell] [data-composer] {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/*
+ * 手机上没有「鼠标移上来」：Tailwind 的 hover / group-hover 只在设备支持悬停时生效，所以靠它才出来的按钮手机上永远点不到。
+ * 项目行的三个按钮一直显示；有右键菜单的行（会话、群聊、大厅）多一个「…」，打开同一个菜单；悬停才有的归档快捷按钮不要了，免得滑动时误点
+ */
+[data-phone-shell] [data-project-actions] {
+  width: auto;
+  overflow: visible;
+  opacity: 1;
+}
+[data-phone-shell] [data-row-more] {
+  display: inline-flex;
+}
+[data-phone-shell] [data-thread-archive] {
+  display: none;
+}
+[data-phone-shell] [data-hover-reveal] {
+  opacity: 1;
+}
+[data-phone-shell] [data-project-actions] button,
+[data-phone-shell] [data-row-more] {
+  width: 32px;
+  height: 32px;
+}
+/* 「…」打开的菜单（画在外壳外面，所以用 :has 找）：每一项加高到手指点得准 */
+body:has([data-phone-shell]) [role='menu'] [role='menuitem'] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+/* 手机版没有底部的终端面板：右栏终端标签上的「移到底部面板」不显示 */
+[data-phone-shell] [data-terminal-to-bottom] {
+  display: none;
+}
+/* 消息上的 回复 / 私聊：点一下消息才出来（GroupChatView 的 MessageItem），按钮放大到手指点得准 */
+[data-phone-shell] [data-msg-tools] {
+  top: -20px;
+}
+[data-phone-shell] [data-msg-tools] button {
+  width: 34px;
+  height: 34px;
+}
